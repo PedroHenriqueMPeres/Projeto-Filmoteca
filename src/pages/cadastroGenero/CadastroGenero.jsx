@@ -12,6 +12,8 @@ const CadastroGenero = () => {
     const [paginaAtual, setPaginaAtual] = useState(1);
     const itensPorPagina = 5; // ou qualquer valor desejado
 
+        
+
     const alertar = (icone, mensagem) => {
         const Toast = Swal.mixin({
             toast: true,
@@ -87,7 +89,32 @@ const CadastroGenero = () => {
         }
     };
 
+async function  editarGenero(id) {
+    // console.log(id);
+    
+        const { value: novoGenero } = await Swal.fire({
+            title: "Insira o Genero",
+            input: "text",
+            inputLabel: "Novo Genero",
+            inputValue: id.nome,
+            showCancelButton: true,
+            inputValidator: (value) => {
+                if (!value) {
+                    return "Você precisa de algo nesse espaço!";
+                }
+            }
+        });
+        if (novoGenero) {
+            
+            try {
+                await api.put(`genero/${id.idGenero}`,{nome: novoGenero});
+                Swal.fire(`O genero modificado ${novoGenero}`);
+            } catch (error) {
+                console.log(error);
+            }
 
+        }
+    }
     listarGenero();
 
     const totalPaginas = Math.ceil(listaGenero.length / itensPorPagina);
@@ -113,6 +140,7 @@ const CadastroGenero = () => {
                     visivel="none"
                     lista={itensPaginados} // ou listaGenero, dependendo da sua paginação
                     funcExcluir={excluirGenero}
+                    funcEditar={editarGenero}
                 />
 
                 <div style={{ textAlign: "center", margin: "20px 0" }}>
@@ -125,7 +153,11 @@ const CadastroGenero = () => {
                                 margin: "0 5px",
                                 padding: "5px 10px",
                                 fontWeight: paginaAtual === i + 1 ? "bold" : "normal",
-                                cursor: "pointer"
+                                cursor: "pointer",
+                                borderRadius: "5px",
+                                color:"red",
+                                backgroundColor:"#ffffff",
+                                border:"1px solid #73061b"
                             }}
                         >
                             {i + 1}

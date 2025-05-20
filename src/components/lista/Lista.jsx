@@ -31,14 +31,13 @@ const Lista = (props) => {
                                         {item.nome}
                                     </td>
                                     <td data-cell="Gênero" style={{ display: props.excluirNome }} >Ação</td>
-                                    <td data-cell="Editar"><img src={Editar} alt="Imagem de uma caneta" /></td>
-                                    <button className="botao_deletar" onClick={() => props.funcExcluir(item)}><td data-cell="Excluir"><img src={Excluir} alt="Imagem de um lixo" /></td></button>
+                                    <td><button className="botao_editar" onClick={() => props.funcEditar(item)}><td data-cell="Editar"><img src={Editar} alt="Imagem de uma caneta" /></td></button></td>
+                                    <td><button className="botao_deletar" onClick={() => props.funcExcluir(item)}><td data-cell="Excluir"><img src={Excluir} alt="Imagem de um lixo" /></td></button></td>
                                 </tr>
                             ))
-
                         ) :
                             (
-                                <p>Nenhum gênero foi encontrado.</p>
+                                <p>Nenhum gênero foi encontrado..</p>
                             )
                         }
 

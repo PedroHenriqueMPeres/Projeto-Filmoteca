@@ -50,6 +50,7 @@
 .item_lista td{
     /* desgrudar o item do titulo */
     padding: 20px 0 5px 0;
+    background-color: white;
 }
 
 .item_lista{
@@ -100,4 +101,8 @@
 
 }
 
+button.botao_editar {
+    border: none;
+    cursor: pointer;
+}
 

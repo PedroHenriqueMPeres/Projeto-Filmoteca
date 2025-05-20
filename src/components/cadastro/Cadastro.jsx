@@ -1,6 +1,10 @@
 import "./Cadastro.css"
 import Botao from "../botao/Botao"
+import Lista from "../lista/Lista"
+import { useState, useEffect } from "react"
+import api from "../../Services/services"
 const Cadastro = (props) => {
+
     return (
         <>
             <section className="section_cadastro">
@@ -28,11 +32,14 @@ const Cadastro = (props) => {
 
                         <div className="campo-cad_genero" style={{ display: props.visibilidade }}>
                             <label htmlFor="genero">Genero</label>
-                            <select style={{ color: "red" }} name="genero" id="">
+                            <select style={{ color: "red" }} name="genero" id=""
+                            value={props.valorSelect}
+                            onChange={(e) => props.setValorSelect(e.target.value)}
+                            >
                                 <option value="" disabled selected>Selecione</option>
-                                <option value="">op 1</option>
-                                <option value="">op 2</option>
-                                <option value="">op 3</option>
+                                {props.lista && props.lista.length > 0 && props.lista.map((itemGenero)=>
+                                <option value= {itemGenero.idGenero}>
+                                {itemGenero.nome}</option>)}
                             </select>
                         </div>
 
