@@ -1,0 +1,103 @@
+.listagem{
+    /* Vamos retirar:
+       header 75px
+       cadastro 225px
+       footer 40px */
+       min-height: calc(100vh - (75px + 225px + 40px));
+
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       padding: 30px;
+}
+
+.listagem h1{
+    text-transform: uppercase;
+}
+
+.listagem hr{
+    max-width: 300px;
+    width: 100%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #73061B;
+    margin-top: 5px;
+}
+
+.item_lista img{
+    height: 21px;
+}
+
+.tabela table{
+    width: 100%;
+    margin-top: 30px;
+
+    border-collapse: collapse;
+}
+
+.table .table_cabecalho :first-child{
+    width: 300px;
+}
+
+.tabela .table_cabecalho :nth-child(2){
+    width: 200px;
+}
+
+.tabela .table_cabecalho th{
+    width: 100px;
+}
+
+.item_lista td{
+    /* desgrudar o item do titulo */
+    padding: 20px 0 5px 0;
+}
+
+.item_lista{
+    text-align: center;
+
+    border-bottom: solid 1px #73061B20;
+}
+
+.botao_deletar {
+    border: none;
+    width: 30px;
+    background-color: white;
+    cursor: pointer;
+}
+
+
+
+
+
+@media screen and (max-width:768px){
+    /*1px-768px  */
+    .tabela thead {
+        display: none;
+    }
+    /* Um elemento embaixo do outro */
+
+    .item_lista td{
+        display: grid;
+        text-align: left;
+        padding: 10px 10px 10px 0px;
+        grid-template-columns: 10ch auto;
+    }
+    
+    .item_lista td::before{
+        content: attr(data-cell) ":";
+        font-weight: 700;
+        width: 80px;
+        
+    }
+
+    .item_lista td:last-child{
+        margin-bottom: 24px;
+    }
+
+    .item_lista td:first-child{
+        margin-top: 24px;
+    }
+
+}
+
+

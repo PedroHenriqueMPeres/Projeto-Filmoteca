@@ -1,0 +1,15 @@
+footer{
+    background-color:#cc3f55 ;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    footer{
+        font-size: 15px;
+    }
+}
