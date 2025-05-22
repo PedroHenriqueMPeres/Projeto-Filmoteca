@@ -1,59 +1,47 @@
 import "./Cadastro.css"
 import Botao from "../botao/Botao"
-import Lista from "../lista/Lista"
-import { useState, useEffect } from "react"
-import api from "../../Services/services"
-const Cadastro = (props) => {
 
+const Cadastro = (props) => {
     return (
-        <>
+        <main className="main_cadastro">
+            <div className="titulo">
+                <h1>{props.titulo}</h1>
+                <hr />
+            </div>
+
             <section className="section_cadastro">
+                <div className="banner_cadastro">
+                    <img src={props.imagem} alt="Fundo banner do cadastro eventos" />
+                </div>
 
                 <form onSubmit={props.funcCadastro} className="layout_grid form_cadastro">
 
-                    <h1>{props.tituloCadastro}</h1>
-
-                    <hr />
-
-                    <div className="campos_cadastros">
-
-                        <div className="campo-cad_nome">
-                            <label htmlFor="nome">Nome</label>
-                            <input placeholder={`Digite o nome do ${props.placeholder}`}
-                             style={{ color: "red" }} 
-                             type="text" 
-                             name="nome" 
-                             value={props.valorInput} 
-                             //Ao mudar o input, algo acontece
-                             //Atualizar o estado do pai ao digitar
-                             //target está indo buscar o valor do "e"
-                             onChange={(e)=>props.setValorInput(e.target.value)}/>
+                    <div className="campos_cadastro">
+                        <div className="campo_cad_titulo">
+                            <label htmlFor="Nome"></label>
+                            <input type="text"
+                                name="nome"
+                                placeholder={props.place}
+                                value={props.valorInput}
+                                onChange={(e) => props.setValorInput(e.target.value)}
+                            />
                         </div>
-
-                        <div className="campo-cad_genero" style={{ display: props.visibilidade }}>
-                            <label htmlFor="genero">Genero</label>
-                            <select style={{ color: "red" }} name="genero" id=""
-                            value={props.valorSelect}
-                            onChange={(e) => props.setValorSelect(e.target.value)}
-                            >
-                                <option value="" disabled selected>Selecione</option>
-                                {props.lista && props.lista.length > 0 && props.lista.map((itemGenero)=>
-                                <option value= {itemGenero.idGenero}>
-                                {itemGenero.nome}</option>)}
+                        <div className="campo_cad_titulo opcao" style={{ display: props.visibilidade }}>
+                            <label htmlFor="Nome"></label>
+                            <select name="Tipo De Evento" id="" className="select_cad">
+                                <option value="" disabled selected>Tipo de Evento</option>
+                                <option value="">op 1</option>
+                                <option value="">op 2</option>
+                                <option value=""> op 3</option>
                             </select>
                         </div>
 
-                        <Botao nomeDoBotao="Cadastrar" />
-
+                        <Botao nomeBotao="Cadastrar" />
                     </div>
-
                 </form>
-
-
-
             </section>
-
-        </>
+        </main>
     )
 }
+
 export default Cadastro;

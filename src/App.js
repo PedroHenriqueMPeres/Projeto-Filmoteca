@@ -1,15 +1,15 @@
+
 import './App.css';
+import ListagemEventos from './pages/listagemEventos/ListagemEventos';
 import Rotas from './Routes/routes';
 
 function App() {
   return (
     <>
-    {/*Chamar as paginas */}
-    <Rotas/>
+      <Rotas/>
+      {/* <ListagemEventos/> */}
     </>
   );
 }
-//essa linha de codigo é responsavel por exportar o App.js, permitindo que ele seja chamado em outras pastas.
+
 export default App;
-
-
